@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application was created for a few reasons:
 
-Things you may want to cover:
+- To help me learn Rails
+- To give me more experience using Git/GitHub
+- To give me a better version of my Backlog Dreadsheet
 
-* Ruby version
+My goals with this are to create a simple app that:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Allows me to share my list with others
+- Allows me to log in to the app in order to add/update games
+- Allows me to sort in a way that makes the most sense
