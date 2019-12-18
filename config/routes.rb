@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
-  get 'games', to: 'games#show'
-  get 'books', to: 'books#show'
-  get 'about', to: 'about#show'
+  get 'about', to: 'home#about'
+  resources :games
+  resources :books
+  #get 'games', to: 'games#index'
+  #get 'books', to: 'books#index'
 end

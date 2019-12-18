@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_202957) do
+ActiveRecord::Schema.define(version: 2019_12_18_142817) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "author_first"
+    t.string "author_last"
+    t.string "genre"
+    t.string "series"
+    t.integer "sort"
+    t.boolean "book_owned"
+    t.boolean "book_read"
+    t.boolean "book_read_date"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title"
+    t.string "series"
+    t.integer "sort"
+    t.string "system"
+    t.string "status"
+    t.text "notes"
+    t.integer "hr_est"
+    t.integer "hr_comp"
+    t.date "date_comp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

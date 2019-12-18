@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  author_first: MyString
+  author_last: MyString
+  genre: MyString
+  series: MyString
+  sort: 1
+  book_owned: false
+  book_read: false
+  book_read_date: false
+  notes: MyText
+
+two:
+  title: MyString
+  author_first: MyString
+  author_last: MyString
+  genre: MyString
+  series: MyString
+  sort: 1
+  book_owned: false
+  book_read: false
+  book_read_date: false
+  notes: MyText
