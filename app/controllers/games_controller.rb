@@ -19,8 +19,7 @@ class GamesController < ApplicationController
   end
 
   def index
-    @games = Game.order('coalesce(series, sort, title) asc')
-    # @games = Game.order('coalesce(series, sort)').order(:title)
+    @games = Game.all
   end
 
   def new
