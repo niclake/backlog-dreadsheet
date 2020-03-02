@@ -15,3 +15,5 @@ return if System.exists?
     system: system_name
   )
 end
+
+puts 'Systems seeded'

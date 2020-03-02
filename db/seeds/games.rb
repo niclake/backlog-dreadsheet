@@ -1,3 +1,5 @@
+puts 'Games seed'
+
 require 'csv'
 
 return if Game.exists?
@@ -16,3 +18,5 @@ CSV.foreach(File.join(File.dirname(__FILE__), 'games.csv'), headers: true) do |r
     date_comp: (Date.strptime(row['Date Comp'], '%m/%d/%y') if row['Date Comp'])
   )
 end
+
+puts 'Games seeded'

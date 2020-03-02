@@ -13,3 +13,5 @@ return if Status.exists?
     name: status
   )
 end
+
+puts 'Statuses seeded'
