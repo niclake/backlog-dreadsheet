@@ -1,3 +1,40 @@
-<h1>Testing Games</h1>
+<%= link_to 'new', new_game_path %>
+
+<table class="table">
+  <tr>
+    <th>Game</th>
+    <th>Status</th>
+    <th>System</th>
+    <th>Owned?</th>
+    <th>Hr Est</th>
+    <th>Hr Comp</th>
+    <th>Date Comp</th>
+    <th>SORT</th>
+  </tr>
+  <% @games.each do |game| %>
+    <tr>
+      <td><%= game.title %></td>
+      <td>
+        <% if game.status %>
+          <%= game.status.name %>
+        <% end %>
+      </td>
+      <td>
+        <% if game.service %>
+          <%= game.system.system %> (<%= game.service %>)
+        <% else %>
+          <%= game.system.system %>
+        <% end %>
+      </td>
+      <td>
+        <% if game.owned %>X
+        <% end %></td>
+      <td><%= game.hr_est %></td>
+      <td><%= game.hr_comp %></td>
+      <td><%= game.date_comp %></td>
+      <td><%= game.series %> <%= game.sort %> <%= game.title %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%#= link_to 'logout',  destroy_user_session_path, method: :delete %>

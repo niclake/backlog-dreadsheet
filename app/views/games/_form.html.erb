@@ -1,0 +1,98 @@
+<%= form_with scope: :game, url: games_path, local: true do |f| %>
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="form-group">
+        <%= f.label :title %><br/>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <%= f.label :owned %><br/>
+      <%= f.check_box :owned, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%= f.label :series %><br/>
+        <%= f.text_field :series, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= f.label :sort %><br/>
+        <%= f.text_field :sort, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="form-group">
+        <%= f.label :hr_est %><br/>
+        <%= f.text_field :hr_est, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= f.label :system %><br/>
+        <%=
+          f.select(
+            :system,
+            System.order(:system),
+            { include_blank: true },
+            class: 'form-control',
+            data: {
+              placeholder: ' '
+            }
+          )
+        %>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <%= f.label :service %><br/>
+      <%= f.text_field :service, class: 'form-control' %>
+    </div>
+    <div class="col-lg-4">
+      <div class="form-group">
+        <%= f.label :status %><br/>
+        <%=
+          f.select(
+            :status,
+            Status.order(:status),
+            { include_blank: true },
+            class: 'form-control',
+            data: {
+              placeholder: ' '
+            }
+          )
+        %>
+        <%#= f.select :status, ['Abandoned', 'Complete', 'In Progress', 'Need To Buy', 'Not Released', 'Priority'], {include_blank: true}, {:class => 'form-control'} %>
+      </div>
+    </div>
+  </div>
+  <%# if :status == 'Complete' %>
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="form-group">
+          <%= f.label :date_comp %><br/>
+          <%= f.text_field :date_comp, data: {provide:'datepicker'}, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="form-group">
+          <%= f.label :hr_comp %><br/>
+          <%= f.text_field :hr_comp, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+  <%# end %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="form-group">
+        <%= f.label :notes %><br/>
+        <%= f.text_area :notes, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

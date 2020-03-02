@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_18_142817) do
+ActiveRecord::Schema.define(version: 2020_02_28_144550) do
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author_first"
-    t.string "author_last"
+    t.string "title", null: false
+    t.string "author_first", null: false
+    t.string "author_last", null: false
     t.string "genre"
     t.string "series"
     t.integer "sort"
@@ -28,15 +28,30 @@ ActiveRecord::Schema.define(version: 2019_12_18_142817) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.string "title"
+    t.integer "system_id"
+    t.integer "status_id"
+    t.string "title", null: false
     t.string "series"
-    t.integer "sort"
-    t.string "system"
-    t.string "status"
-    t.text "notes"
+    t.string "sort"
+    t.string "service"
+    t.boolean "owned"
     t.integer "hr_est"
     t.integer "hr_comp"
     t.date "date_comp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_games_on_status_id"
+    t.index ["system_id"], name: "index_games_on_system_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "key"
+    t.string "name"
+  end
+
+  create_table "systems", force: :cascade do |t|
+    t.string "system", null: false
+    t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -53,4 +68,6 @@ ActiveRecord::Schema.define(version: 2019_12_18_142817) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "statuses"
+  add_foreign_key "games", "systems"
 end

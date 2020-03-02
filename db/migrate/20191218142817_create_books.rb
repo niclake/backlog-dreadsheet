@@ -1,9 +1,9 @@
 class CreateBooks < ActiveRecord::Migration[6.0]
   def change
     create_table :books do |t|
-      t.string :title
-      t.string :author_first
-      t.string :author_last
+      t.string :title, null: false
+      t.string :author_first, null: false
+      t.string :author_last, null: false
       t.string :genre
       t.string :series
       t.integer :sort
