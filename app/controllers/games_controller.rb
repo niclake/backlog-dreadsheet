@@ -1,22 +1,8 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[edit update show destroy]
 
-  helper_method :sort_order
   helper_method :game_service
-
-  def sort_order
-    # @sort_order ||=
-  end
-
-  def game_service
-    game = Game.find(params[:id])
-    return game
-    # if game.service
-    #   @game_service = game.system.system + ' (' + game.service + ')'
-    # else
-    #   @game_service = game.system.system
-    # end
-  end
+  helper_method :get_statuses
 
   def index
     @games = Game.all
@@ -36,8 +22,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     @game = Game.update(game_params)
@@ -58,7 +43,16 @@ class GamesController < ApplicationController
   private
 
   def set_game
-    @game = Games.find(params[:id])
+    @game = Game.find(params[:id])
+  end
+
+  def game_service
+    game = Game.find(params[:id])
+    return game
+  end
+
+  def get_statuses
+    @statuses = Status.all
   end
 
   def game_params

@@ -1,0 +1,42 @@
+body {
+  background: url('bg.png') repeat;
+}
+
+.navbar {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.navbar-sub {
+  background: transparent;
+  margin-bottom: 20px;
+  border-bottom: none;
+
+  .btn {
+    margin-top: 10px;
+  }
+}
+
+table {
+  th {
+    &:not(:first-child) {
+      text-align: center;
+    }
+  }
+
+  > tbody > tr {
+    border-top: 1px solid #bbbbbb !important;
+
+    td {
+      border-top: 1px solid #bbbbbb !important;
+    }
+  }
+}
+
+.form-control {
+  &.checkbox {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-top: 0;
+  }
+}

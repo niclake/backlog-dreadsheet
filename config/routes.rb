@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   get 'about', to: 'home#about'
   resources :games
   resources :books
-  #get 'games', to: 'games#index'
-  #get 'books', to: 'books#index'
 end

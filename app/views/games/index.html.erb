@@ -1,5 +1,3 @@
-<%= link_to 'new', new_game_path %>
-
 <table class="table">
   <tr>
     <th>Game</th>
@@ -9,9 +7,9 @@
     <th>Hr Est</th>
     <th>Hr Comp</th>
     <th>Date Comp</th>
-    <th>SORT</th>
+    <th>&nbsp;</th>
   </tr>
-  <% @games.each do |game| %>
+  <% @games.all.sort_by(&:sort_string).each do |game| %>
     <tr>
       <td><%= game.title %></td>
       <td>
@@ -21,18 +19,20 @@
       </td>
       <td>
         <% if game.service %>
-          <%= game.system.system %> (<%= game.service %>)
+          <%= game.service %>
         <% else %>
           <%= game.system.system %>
         <% end %>
       </td>
       <td>
-        <% if game.owned %>X
+        <% if game.owned %>Yes
         <% end %></td>
       <td><%= game.hr_est %></td>
       <td><%= game.hr_comp %></td>
       <td><%= game.date_comp %></td>
-      <td><%= game.series %> <%= game.sort %> <%= game.title %></td>
+      <td>
+        <%= link_to 'Edit', edit_game_path(game.id), title: "Edit #{game.title}" %>
+      </td>
     </tr>
   <% end %>
 </table>
