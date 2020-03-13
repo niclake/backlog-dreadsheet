@@ -1,12 +1,12 @@
-<%= form_with scope: :game, url: games_path, local: true do |f| %>
+<%= form_for @game do |f| %>
   <div class="row">
-    <div class="col-lg-10">
+    <div class="col-lg-6 col-xs-10">
       <div class="form-group">
         <%= f.label :title, 'Game Title' %><br />
         <%= f.text_field :title, class: 'form-control' %>
       </div>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-1 col-xs-2">
       <div class="form-group">
         <%= f.label :owned, 'Owned?' %><br />
         <%= f.check_box :owned, class: 'form-control checkbox' %>
@@ -14,19 +14,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-xs-6">
       <div class="form-group">
         <%= f.label :series %><br />
         <%= f.text_field :series, class: 'form-control' %>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-xs-3">
       <div class="form-group">
         <%= f.label :sort %><br />
         <%= f.text_field :sort, class: 'form-control' %>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-xs-3">
       <div class="form-group">
         <%= f.label :hr_est %><br />
         <%= f.text_field :hr_est, class: 'form-control' %>
@@ -36,12 +36,12 @@
   <div class="row">
     <div class="col-lg-4">
       <div class="form-group">
-        <%= f.label :system %><br />
+        <%= f.label :system_id %><br />
         <%=
           f.select(
-            :system,
+            :system_id,
             options_for_select(
-              System.all.order(:system).map { |r| [r.system, r.id] },
+              System.where(active: true).order(:system).map { |r| [r.system, r.id] },
               @game.system_id
             ),
             { include_blank: true },
@@ -55,17 +55,19 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <%= f.label :service %><br />
-      <%= f.text_field :service, class: 'form-control' %>
+      <div class="form-group">
+        <%= f.label :service %><br />
+        <%= f.text_field :service, class: 'form-control' %>
+      </div>
     </div>
     <div class="col-lg-4">
       <div class="form-group">
-        <%= f.label :status %><br />
+        <%= f.label :status_id %><br />
         <%=
           f.select(
-            :status,
+            :status_id,
             options_for_select(
-              Status.all.order(:name).map { |r| [r.name, r.id] },
+              Status.order(:name).map { |r| [r.name, r.id] },
               @game.status_id
             ),
             { include_blank: true },
@@ -79,10 +81,11 @@
       </div>
     </div>
   </div>
+  <%# TODO: Make the completed section work when Complete is selected in the status %>
   <%# if :status == 'Complete' %>
   <div class="row">
-    <div class="col-lg-9">
-      <div class="form-group">
+    <div class="col-lg-3">
+      <div id="sandbox-container" class="form-group">
         <%= f.label :date_comp %><br />
         <%= f.text_field :date_comp, data: { provide: 'datepicker' }, class: 'form-control' %>
       </div>
@@ -95,5 +98,8 @@
     </div>
   </div>
   <%# end %>
-  <%= f.submit class: 'btn btn-primary' %>
+  <div class="form-buttons">
+    <%= link_to "Cancel", games_path, class: 'btn btn-default'  %>
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>

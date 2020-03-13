@@ -17,7 +17,7 @@ body {
   }
 }
 
-table {
+.dreadsheet-table {
   th {
     &:not(:first-child) {
       text-align: center;
@@ -39,4 +39,8 @@ table {
     -webkit-box-shadow: none;
     margin-top: 0;
   }
+}
+
+.form-buttons {
+  float: right;
 }

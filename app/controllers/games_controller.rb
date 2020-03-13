@@ -22,11 +22,11 @@ class GamesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
-    @game = Game.update(game_params)
-    if @game.save
+    if @game.update(game_params)
       flash[:notice] = 'Game was successfully updated'
       redirect_to games_path
     else
@@ -65,8 +65,8 @@ class GamesController < ApplicationController
       :hr_est,
       :hr_comp,
       :date_comp,
-      :system,
-      :status
+      :system_id,
+      :status_id
     )
   end
 end
