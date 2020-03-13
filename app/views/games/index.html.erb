@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table dreadsheet-table">
   <tr>
     <th>Game</th>
     <th>Status</th>
@@ -31,10 +31,9 @@
       <td><%= game.hr_comp %></td>
       <td><%= game.date_comp %></td>
       <td>
-        <%= link_to 'Edit', edit_game_path(game.id), title: "Edit #{game.title}" %>
+        <%= link_to 'Edit', edit_game_path(game), title: "Edit #{game.title}" %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<%#= link_to 'logout',  destroy_user_session_path, method: :delete %>
