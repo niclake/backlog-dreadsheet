@@ -35,5 +35,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-# Ignore RubyMine's .idea folder
-.idea/
+/.idea/*
