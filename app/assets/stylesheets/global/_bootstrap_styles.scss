@@ -1,0 +1,11 @@
+// Override Bootstrap Styles
+// See: https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+
+.radio,
+.checkbox {
+  margin-top: 0;
+
+  label {
+    padding-left: 0;
+  }
+}

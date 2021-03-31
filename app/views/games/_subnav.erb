@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="nav navbar-nav navbar-right m-t">
+    <%=
+      link_to(
+        'In Progress/Priority',
+        {
+          controller: :games,
+          action: :in_progress_priority
+        },
+        class: 'btn btn-primary',
+        data: {
+          status: [0,1]
+        }
+      )
+    %>
+    <%=link_to 'Add Game', new_game_path, class: 'btn btn-primary' %>
+  </div>
+</div>

@@ -8,15 +8,39 @@ CSV.foreach(File.join(File.dirname(__FILE__), 'games.csv'), headers: true) do |r
   Game.create!(
     title: row['Game Title'],
     series: row['Series'],
-    sort: row['Sort'],
-    system: System.find_by(system: row['System']),
-    service: row['Service'],
-    status: Status.find_by(name: row['Status']),
+    order: (row['Order'].to_f if row['Order']),
+    system:
+      if row['System'] == 'PC' && row['Service']
+        System.find_by(nickname: row['Service'])
+      elsif row['System'] == 'PC'
+        System.find_by(system: 'PC')
+      else
+        System.find_by(nickname: row['System'])
+      end,
+    status:
+      case row['Status']
+      when 'Priority'
+        0
+      when 'In Progress'
+        1
+      when 'Complete'
+        2
+      when 'Abandoned'
+        3
+      else
+        nil
+      end,
     owned: row['Owned'] == 'X', # If X, true
-    hr_est: row['Hr Est'],
-    hr_comp: row['Hr Comp'],
-    date_comp: (Date.strptime(row['Date Comp'], '%m/%d/%y') if row['Date Comp'])
+    hour_estimate: row['Hr Est'].to_f
   )
+
+  if row['Hr Comp'] && row['Comp Date']
+    GameLog.create!(
+      game_id: Game.last.id,
+      date: Date.strptime(row['Comp Date'], '%m/%d/%y'),
+      hours: row['Hr Comp'].to_f
+    )
+  end
 end
 
 puts 'Games seeded'

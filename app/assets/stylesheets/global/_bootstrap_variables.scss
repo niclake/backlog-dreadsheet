@@ -1,0 +1,67 @@
+// Override Bootstrap Colors
+// See: https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+
+// $gray-base:             #000 !default;
+// $gray-darker:           lighten($gray-base, 13.5%) !default; // #222
+// $gray-dark:             lighten($gray-base, 20%) !default;   // #333
+// $gray:                  lighten($gray-base, 33.5%) !default; // #555
+// $gray-light:            lighten($gray-base, 46.7%) !default; // #777
+// $gray-lighter:          lighten($gray-base, 93.5%) !default; // #eee
+
+// $brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+// $brand-success:         #5cb85c !default;
+// $brand-info:            #5bc0de !default;
+// $brand-warning:         #f0ad4e !default;
+// $brand-danger:          #d9534f !default;
+// $brand-default:
+
+$body-bg: $white;
+// $text-color:
+
+// $border-radius-base:             6px !default;
+// $border-radius-large:            9px !default;
+// $border-radius-small:            6px !default;
+
+// $link-color:                     $text-color !default;
+// $link-hover-color:               darken($link-color, 15%) !default;
+// $link-hover-decoration:          underline !default;
+
+// $btn-default-color:              #fff !default;
+// $btn-default-bg:                 $brand-default !default;
+// $btn-default-border:             $brand-default !default;
+
+// $btn-primary-border:             $brand-primary !default;
+// $btn-success-border:             $brand-success !default;
+// $btn-info-border:                $brand-info !default;
+// $btn-warning-border:             $brand-warning !default;
+// $btn-danger-border:              $brand-danger !default;
+
+// $font-family-sans-serif:         HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+// $font-family-condensed-bold:     HelveticaNeue-CondensedBold, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+// $headings-font-family:           $font-family-condensed-bold !default;
+// $headings-color:                 $gray !default;
+
+// $well-bg:                        $white !default;
+// $well-border:                    #dbdada !default;
+
+// $navbar-height:                  80px !default;
+// $navbar-default-bg:              $white !default;
+// $navbar-default-border:          $white !default;
+// $navbar-default-color:           $gray !default;
+// $navbar-default-link-color:      $gray !default;
+
+// $state-success-text:             #3c763d !default;
+// $state-success-bg:               #dff0d8 !default;
+// $state-success-border:           darken(adjust-hue($state-success-bg, -10), 5%) !default;
+
+// $state-info-text:                #31708f !default;
+// $state-info-bg:                  #d9edf7 !default;
+// $state-info-border:              darken(adjust-hue($state-info-bg, -10), 7%) !default;
+
+// $state-warning-text:             #8a6d3b !default;
+// $state-warning-bg:               #fcf8e3 !default;
+// $state-warning-border:           darken(adjust-hue($state-warning-bg, -10), 5%) !default;
+
+// $state-danger-text:              #a94442 !default;
+// $state-danger-bg:                #f2dede !default;
+// $state-danger-border:            darken(adjust-hue($state-danger-bg, -10), 5%) !default;

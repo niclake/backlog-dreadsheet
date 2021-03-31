@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.1'
 gem 'pg'
 # Devise auth
 gem 'devise'
+gem 'devise-async'
 # Bootstrap
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
@@ -26,14 +27,29 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-#
-# Datepicker
-gem 'bootstrap-datepicker-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# Decorators
+gem 'draper'
+# UI Styling
+gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-sass'
+# Select boxes
+gem 'chosen-rails'
+# Icons
+gem 'font-awesome-sass'
+# Flash messages
+gem 'toastr-rails'
+# Modal forms
+gem 'jquery-form-rails'
+# Pagination
+gem 'kaminari'
+# Searching
+gem 'ransack'
+
 
 group :production do
 end

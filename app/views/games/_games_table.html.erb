@@ -1,0 +1,30 @@
+<table class="table dreadsheet-table">
+  <tr>
+    <th>Game</th>
+    <th>Status</th>
+    <th>System</th>
+    <th>Owned?</th>
+    <th>Hr Est</th>
+    <th>&nbsp;</th>
+  </tr>
+  <% @games.all.sort_by(&:sort_string).each do |game| %>
+    <tr>
+      <td><%= game.title %></td>
+      <td><%= game.status? ? game.status.titleize : '' %></td>
+      <td><%= game.system.nickname %></td>
+      <td><%= game.owned? ? 'Yes' : 'No' %></td>
+      <td>
+        <%=
+          number_with_precision(
+            game.hour_estimate,
+            precesion: 1,
+            strip_insignificant_zeros: true
+          )
+        %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_game_path(game), title: "Edit #{game.title}" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

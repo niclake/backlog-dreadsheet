@@ -22,14 +22,14 @@
     </div>
     <div class="col-xs-3">
       <div class="form-group">
-        <%= f.label :sort %><br />
-        <%= f.text_field :sort, class: 'form-control' %>
+        <%= f.label :order %><br />
+        <%= f.text_field :order, class: 'form-control' %>
       </div>
     </div>
     <div class="col-xs-3">
       <div class="form-group">
-        <%= f.label :hr_est %><br />
-        <%= f.text_field :hr_est, class: 'form-control' %>
+        <%= f.label :hour_estimate %><br />
+        <%= f.text_field :hour_estimate, class: 'form-control' %>
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
           f.select(
             :system_id,
             options_for_select(
-              System.where(active: true).order(:system).map { |r| [r.system, r.id] },
+              System.order(:system).map { |r| [r.system, r.id] },
               @game.system_id
             ),
             { include_blank: true },
@@ -56,22 +56,12 @@
     </div>
     <div class="col-lg-4">
       <div class="form-group">
-        <%= f.label :service %><br />
-        <%= f.text_field :service, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="form-group">
-        <%= f.label :status_id %><br />
+        <%= f.label :status %><br />
         <%=
           f.select(
-            :status_id,
-            options_for_select(
-              Status.order(:name).map { |r| [r.name, r.id] },
-              @game.status_id
-            ),
+            :status,
+            enum_selection(f.object.class, :status),
             { include_blank: true },
-            selected: '',
             class: 'form-control',
             data: {
               placeholder: ' '
@@ -81,23 +71,6 @@
       </div>
     </div>
   </div>
-  <%# TODO: Make the completed section work when Complete is selected in the status %>
-  <%# if :status == 'Complete' %>
-  <div class="row">
-    <div class="col-lg-3">
-      <div id="sandbox-container" class="form-group">
-        <%= f.label :date_comp %><br />
-        <%= f.text_field :date_comp, data: { provide: 'datepicker' }, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-lg-3">
-      <div class="form-group">
-        <%= f.label :hr_comp %><br />
-        <%= f.text_field :hr_comp, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-  <%# end %>
   <div class="form-buttons">
     <%= link_to "Cancel", games_path, class: 'btn btn-default'  %>
     <%= f.submit class: 'btn btn-primary' %>

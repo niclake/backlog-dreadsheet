@@ -1,0 +1,79 @@
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .004);
+}
+
+body {
+  color: $black;
+  background-color: $white;
+}
+
+.field_with_errors { // scss-lint:disable SelectorFormat
+  display: inline;
+}
+
+// Sign in, sign up, etc. screens
+.devise-box {
+  margin: 0 auto;
+  width: 300px;
+}
+
+// Position of flash messages
+.toast-top-right {
+  top: 65px;
+  right: 15px;
+}
+
+// Devise form error
+#error-explanation {
+  margin-bottom: 20px;
+  color: $brand-danger;
+
+  ul,
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// Shrink table cell to fit content
+td.width-fit {
+  width: 1%;
+}
+
+th a {
+  color: inherit;
+}
+
+.search-button {
+  margin-top: 26px;
+}
+
+.admin-index-heading {
+  display: inline-block;
+  margin-top: 0;
+}
+
+
+// Form Group to make Chosen consistent
+.form-group {
+  input,
+  select {
+    height: 33px;
+    border-radius: 4px;
+  }
+}
+
+.form-control {
+  color: $body-text-color;
+}
+
+trix-editor.form-control {
+  height: auto;
+}
+
+[disabled] a, a[disabled] {
+  pointer-events: none;
+}

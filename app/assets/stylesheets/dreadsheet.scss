@@ -1,46 +1,52 @@
 body {
   background: url('bg.png') repeat;
-}
 
-.navbar {
-  border-radius: 0;
-  margin-bottom: 0;
-}
-
-.navbar-sub {
-  background: transparent;
-  margin-bottom: 20px;
-  border-bottom: none;
-
-  .btn {
-    margin-top: 10px;
+  .navbar {
+    border-radius: 0;
+    margin-bottom: 0;
   }
-}
 
-.dreadsheet-table {
-  th {
-    &:not(:first-child) {
-      text-align: center;
+  .navbar-sub {
+    background: transparent;
+    margin-bottom: 20px;
+    border: none;
+
+    .btn {
+      margin-top: 10px;
     }
   }
 
-  > tbody > tr {
-    border-top: 1px solid #bbbbbb !important;
+  .dreadsheet-table {
+    th {
+      &:not(:first-child) {
+        text-align: center;
+      }
+    }
 
-    td {
+    > tbody > tr {
       border-top: 1px solid #bbbbbb !important;
+
+      td {
+        border-top: 1px solid #bbbbbb !important;
+
+        &:not(:first-child) {
+          text-align: center;
+        }
+      }
     }
   }
-}
 
-.form-control {
-  &.checkbox {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    margin-top: 0;
+  .form-control {
+    &.checkbox {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      margin-top: 0;
+    }
+  }
+
+  .form-buttons {
+    float: right;
   }
 }
 
-.form-buttons {
-  float: right;
-}
+

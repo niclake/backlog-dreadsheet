@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_010101) do
+ActiveRecord::Schema.define(version: 2021_03_31_195805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,26 +30,24 @@ ActiveRecord::Schema.define(version: 2020_03_01_010101) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "games", force: :cascade do |t|
-    t.bigint "system_id"
-    t.bigint "status_id"
-    t.string "title", null: false
-    t.string "series"
-    t.string "sort"
-    t.string "service"
-    t.boolean "owned"
-    t.integer "hr_est"
-    t.integer "hr_comp"
-    t.date "date_comp"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["status_id"], name: "index_games_on_status_id"
-    t.index ["system_id"], name: "index_games_on_system_id"
+  create_table "game_logs", force: :cascade do |t|
+    t.bigint "game_id"
+    t.date "date"
+    t.float "hours"
+    t.index ["game_id"], name: "index_game_logs_on_game_id"
   end
 
-  create_table "statuses", force: :cascade do |t|
-    t.string "key"
-    t.string "name"
+  create_table "games", force: :cascade do |t|
+    t.bigint "system_id"
+    t.string "title", null: false
+    t.string "series"
+    t.boolean "owned"
+    t.float "hour_estimate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "status"
+    t.float "order"
+    t.index ["system_id"], name: "index_games_on_system_id"
   end
 
   create_table "systems", force: :cascade do |t|
@@ -57,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_01_010101) do
     t.boolean "active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "nickname"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,6 +70,6 @@ ActiveRecord::Schema.define(version: 2020_03_01_010101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "games", "statuses"
+  add_foreign_key "game_logs", "games"
   add_foreign_key "games", "systems"
 end

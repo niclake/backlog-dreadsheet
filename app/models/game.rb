@@ -1,10 +1,12 @@
 class Game < ApplicationRecord
   belongs_to :system
-  belongs_to :status, optional: true
+  has_many :game_logs
 
   validates :title, presence: true
 
+  enum status: %i[priority in_progress complete abandoned]
+
   def sort_string
-    [series, sort, title].join('')
+    [series, order, title].join('')
   end
 end

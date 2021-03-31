@@ -1,11 +1,15 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: %i[edit update show destroy]
+  before_action :set_game, only: %i[edit update destroy]
 
   helper_method :game_service
   helper_method :get_statuses
 
   def index
     @games = Game.all
+  end
+
+  def in_progress_priority
+    @games = Game.where(status: [0,1]) # Priority, In Progress
   end
 
   def new
