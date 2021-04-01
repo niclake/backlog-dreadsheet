@@ -16,7 +16,7 @@
 
   <tbody>
     <% @games.each do |game| %>
-      <tr>
+      <%= tag.tr(class: game.system.nickname.gsub(/[^0-9a-z ]/i, '').downcase) do %>
         <td><%= game.title %></td>
         <td><%= game.status? ? game.status.titleize : '' %></td>
         <td><%= game.system.nickname %></td>
@@ -52,9 +52,15 @@
           <% end %>
         <% end %>
         <td>
-          <%= link_to 'Edit', edit_game_path(game), title: "Edit #{game.title}", class: 'btn btn-primary btn-sm' %>
+          <%=
+            link_to(
+              'Edit',
+              edit_game_path(game),
+              class: 'btn btn-outline-primary btn-sm'
+            )
+          %>
         </td>
-      </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

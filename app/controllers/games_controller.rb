@@ -112,15 +112,12 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(
       :title,
-      :series,
-      :sort,
-      :service,
       :owned,
-      :hr_est,
-      :hr_comp,
-      :date_comp,
+      :series,
+      :order,
+      :hour_estimate,
       :system_id,
-      :status_id
+      :status
     )
   end
 end

@@ -1,5 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   background: url('bg.png') repeat;
+
+  .wrapper {
+    padding-top: 10px;
+  }
 
   .navbar {
     border-radius: 0;
@@ -42,20 +51,56 @@ body {
           text-align: center;
         }
       }
+
+      &.switch {
+        background-color: #ebc5c5;
+      }
+
+      &.ps4,
+      &.ps5 {
+        background-color: #c2d2ef;
+      }
+
+      &.pc,
+      &.steam,
+      &.xgp,
+      &.eaorigin,
+      &.epic,
+      &.twitch,
+      &.itchio,
+      &.uplay {
+        background-color: #d1e2cc;
+      }
     }
   }
 
-  .form-control {
-    &.checkbox {
-      box-shadow: none;
-      -webkit-box-shadow: none;
-      margin-top: 0;
+  form {
+    .row {
+      padding-bottom: 10px;
+
+      .form-group {
+        input[type="checkbox"] {
+          box-shadow: none;
+          -webkit-box-shadow: none;
+          margin-top: 0.5rem;
+          width: 2.25rem;
+          height: 2.25rem;
+          border: 1px solid #ced4da;
+        }
+      }
     }
+
+    //.form-buttons {
+    //  float: right;
+    //
+    //  &::after {
+    //    content: "";
+    //    clear: both;
+    //    display: table;
+    //  }
+    //}
   }
 
-  .form-buttons {
-    float: right;
-  }
 }
 
 

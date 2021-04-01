@@ -6,7 +6,14 @@
         controller: :games,
         action: :index
       },
-      class: 'btn btn-success'
+      class: [
+        'btn',
+        if current_page?(games_path)
+          'btn-success'
+        else
+          'btn-outline-success'
+        end
+      ]
     )
   %>
   <%=
@@ -16,7 +23,14 @@
         controller: :games,
         action: :in_progress_priority
       },
-      class: 'btn btn-primary'
+      class: [
+        'btn',
+        if current_page?(in_progress_priority_games_path)
+          'btn-primary'
+        else
+          'btn-outline-primary'
+        end
+      ]
     )
   %>
   <%=
@@ -26,7 +40,14 @@
         controller: :games,
         action: :complete_abandoned
       },
-      class: 'btn btn-danger'
+      class: [
+        'btn',
+        if current_page?(complete_abandoned_games_path)
+          'btn-primary'
+        else
+          'btn-outline-primary'
+        end
+      ]
     )
   %>
   <%=
@@ -36,7 +57,14 @@
         controller: :games,
         action: :unowned
       },
-      class: 'btn btn-warning'
+      class: [
+        'btn',
+        if current_page?(unowned_games_path)
+          'btn-primary'
+        else
+          'btn-outline-primary'
+        end
+      ]
     )
   %>
   <%=
@@ -46,7 +74,14 @@
         controller: :games,
         action: :games_to_play
       },
-      class: 'btn btn-light'
+      class: [
+        'btn',
+        if current_page?(games_to_play_games_path)
+          'btn-primary'
+        else
+          'btn-outline-primary'
+        end
+      ]
     )
   %>
   <%=
@@ -56,7 +91,14 @@
         controller: :games,
         action: :pc_games
       },
-      class: 'btn btn-dark'
+      class: [
+        'btn',
+        if current_page?(pc_games_games_path)
+          'btn-dark'
+        else
+          'btn-outline-dark'
+        end
+      ]
     )
   %>
   <%=
@@ -66,7 +108,14 @@
         controller: :games,
         action: :switch_games
       },
-      class: 'btn btn-danger'
+      class: [
+        'btn',
+        if current_page?(switch_games_games_path)
+          'btn-dark'
+        else
+          'btn-outline-dark'
+        end
+      ]
     )
   %>
   <%=
@@ -76,7 +125,14 @@
         controller: :games,
         action: :ps4_games
       },
-      class: 'btn btn-info'
+      class: [
+        'btn',
+        if current_page?(ps4_games_games_path)
+          'btn-dark'
+        else
+          'btn-outline-dark'
+        end
+      ]
     )
   %>
   <%= link_to 'Add Game', new_game_path, class: 'btn btn-primary' %>

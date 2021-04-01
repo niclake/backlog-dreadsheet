@@ -1,42 +1,32 @@
-<%= form_for @game do |f| %>
-  <div class="row">
-    <div class="col-lg-6 col-xs-10">
-      <div class="form-group">
-        <%= f.label :title, 'Game Title' %><br />
+<div>
+  <%= form_for @game do |f| %>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <%= f.label :title, 'Game Title', class: 'form-label' %>
         <%= f.text_field :title, class: 'form-control' %>
       </div>
-    </div>
-    <div class="col-lg-1 col-xs-2">
-      <div class="form-group">
-        <%= f.label :owned, 'Owned?' %><br />
-        <%= f.check_box :owned, class: 'form-control checkbox' %>
+      <div class="form-group col-md-6">
+        <%= f.label :owned, 'Owned?', class: 'form-check-label' %><br />
+        <%= f.check_box :owned, class: 'form-check-input form-control checkbox' %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="form-group">
-        <%= f.label :series %><br />
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label :series, class: 'form-label' %>
         <%= f.text_field :series, class: 'form-control' %>
       </div>
-    </div>
-    <div class="col-xs-3">
-      <div class="form-group">
-        <%= f.label :order %><br />
+      <div class="form-group col-md-2">
+        <%= f.label :order, class: 'form-label' %>
         <%= f.text_field :order, class: 'form-control' %>
       </div>
-    </div>
-    <div class="col-xs-3">
-      <div class="form-group">
-        <%= f.label :hour_estimate %><br />
+      <div class="form-group col-md-2">
+        <%= f.label :hour_estimate, class: 'form-label' %>
         <%= f.text_field :hour_estimate, class: 'form-control' %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg-4">
-      <div class="form-group">
-        <%= f.label :system_id %><br />
+    <div class="row">
+      <div class="form-group col-md-4">
+        <%= f.label :system_id, class: 'form-label' %>
         <%=
           f.select(
             :system_id,
@@ -53,10 +43,8 @@
           )
         %>
       </div>
-    </div>
-    <div class="col-lg-4">
-      <div class="form-group">
-        <%= f.label :status %><br />
+      <div class="form-group col-md-4">
+        <%= f.label :status, class: 'form-label' %>
         <%=
           f.select(
             :status,
@@ -70,9 +58,53 @@
         %>
       </div>
     </div>
+    <div class="form-buttons">
+      <%= link_to "Cancel", games_path, class: 'btn btn-outline-danger pull-right'  %>
+      <%= f.submit class: 'btn btn-primary pull-right' %>
+    </div>
+  <% end %>
+</div>
+
+  <hr />
+  <div>
+    <h3>Game Logs</h3>
+    <%=
+      link_to(
+        'Add Game Log',
+        new_game_game_log_path(game_id: @game.id),
+        class: 'btn btn-primary'
+      )
+    %>
   </div>
-  <div class="form-buttons">
-    <%= link_to "Cancel", games_path, class: 'btn btn-default'  %>
-    <%= f.submit class: 'btn btn-primary' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <% if @game.game_logs.exists? %>
+        <table class="table table-sm">
+          <thead>
+          <tr>
+            <th>Date Completed</th>
+            <th>Hours</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @game.game_logs.order(completion_date: :desc).each do |log| %>
+            <tr>
+              <td><%= log.completion_date %></td>
+              <td>
+                <%=
+                  log.hours.nil? ?
+                    '' :
+                    number_with_precision(
+                      log.hours,
+                      precesion: 1,
+                      strip_insignificant_zeros: true
+                    )
+                %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
   </div>
-<% end %>

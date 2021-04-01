@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     :games,
     except: %i[show]
   ) do
+    resource(
+      :game_log,
+      only: %i[new create destroy]
+    )
     collection do
       get 'in_progress_priority'
       get 'complete_abandoned'
