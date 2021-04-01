@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="nav navbar-nav navbar-right m-t">
+<div class="row">
     <%=
       link_to(
         'In Progress/Priority',
@@ -7,12 +6,68 @@
           controller: :games,
           action: :in_progress_priority
         },
-        class: 'btn btn-primary',
-        data: {
-          status: [0,1]
-        }
+        class: 'btn btn-outline-primary'
+      )
+    %>
+    <%=
+      link_to(
+        'Complete/Abandoned',
+        {
+          controller: :games,
+          action: :complete_abandoned
+        },
+        class: 'btn btn-outline-danger'
+      )
+    %>
+    <%=
+      link_to(
+        'Unowned',
+        {
+          controller: :games,
+          action: :unowned
+        },
+        class: 'btn btn-outline-warning'
+      )
+    %>
+    <%=
+      link_to(
+        'Games to Play',
+        {
+          controller: :games,
+          action: :games_to_play
+        },
+        class: 'btn btn-light'
+      )
+    %>
+    <%=
+      link_to(
+        'PC Games',
+        {
+          controller: :games,
+          action: :pc_games
+        },
+        class: 'btn btn-dark'
+      )
+    %>
+    <%=
+      link_to(
+        'Switch Games',
+        {
+          controller: :games,
+          action: :switch_games
+        },
+        class: 'btn btn-danger'
+      )
+    %>
+    <%=
+      link_to(
+        'PS4 Games',
+        {
+          controller: :games,
+          action: :ps4_games
+        },
+        class: 'btn btn-info'
       )
     %>
     <%=link_to 'Add Game', new_game_path, class: 'btn btn-primary' %>
-  </div>
 </div>

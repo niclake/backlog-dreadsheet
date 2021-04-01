@@ -34,11 +34,11 @@ CSV.foreach(File.join(File.dirname(__FILE__), 'games.csv'), headers: true) do |r
     hour_estimate: row['Hr Est'].to_f
   )
 
-  if row['Hr Comp'] && row['Comp Date']
+  if row['Comp Date']
     GameLog.create!(
       game_id: Game.last.id,
-      date: Date.strptime(row['Comp Date'], '%m/%d/%y'),
-      hours: row['Hr Comp'].to_f
+      completion_date: Date.strptime(row['Comp Date'], '%m/%d/%y'),
+      hours: row['Hr Comp'] ? row['Hr Comp'].to_f : ''
     )
   end
 end

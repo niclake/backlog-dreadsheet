@@ -5,9 +5,14 @@
     <th>System</th>
     <th>Owned?</th>
     <th>Hr Est</th>
+    <% if page == 'complete_abandoned' %>
+      <th>Hr Comp</th>
+      <th>Comp Date</th>
+    <% end %>
     <th>&nbsp;</th>
   </tr>
-  <% @games.all.sort_by(&:sort_string).each do |game| %>
+
+  <% @games.each do |game| %>
     <tr>
       <td><%= game.title %></td>
       <td><%= game.status? ? game.status.titleize : '' %></td>
@@ -22,6 +27,17 @@
           )
         %>
       </td>
+      <% if page == 'complete_abandoned' %>
+        <% if game.game_logs.exists? %>
+          <% game.game_logs.order(completion_date: :desc).each do |log| %>
+            <td><%= log.hours.nil? ? '' : log.hours %></td>
+            <td><%= log.completion_date %></td>
+          <% end %>
+        <% else %>
+          <td></td>
+          <td></td>
+        <% end %>
+      <% end %>
       <td>
         <%= link_to 'Edit', edit_game_path(game), title: "Edit #{game.title}" %>
       </td>

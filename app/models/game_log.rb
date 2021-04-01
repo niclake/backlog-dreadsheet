@@ -2,8 +2,7 @@ class GameLog < ApplicationRecord
   belongs_to :game
 
   validates(
-    :date,
-    :hours,
+    :completion_date,
     presence: true
   )
 end
