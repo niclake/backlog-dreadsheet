@@ -9,7 +9,11 @@ class GamesController < ApplicationController
   end
 
   def in_progress_priority
-    @games = Game.where(status: [0,1]).sort_by(&:sort_string) # Priority, In Progress
+    @games =
+      Game
+        .where(status: [0,1]) # Priority, In Progress
+        .sort_by { |g| [g.status, g.sort_string] }
+        # .sort_by(&:sort_string) # Priority, In Progress
   end
 
   def complete_abandoned

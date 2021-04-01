@@ -8,12 +8,9 @@ gem 'rails', '~> 6.0.1'
 gem 'pg'
 # Devise auth
 gem 'devise'
-gem 'devise-async'
 # Bootstrap
-gem 'twitter-bootstrap-rails'
-gem 'bootstrap'
+gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views'
 # Use Puma as the app server
 gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
@@ -30,14 +27,12 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 # Decorators
 gem 'draper'
 # UI Styling
 gem 'bootstrap-datepicker-rails'
-gem 'bootstrap-sass'
 # Select boxes
 gem 'chosen-rails'
 # Icons
